@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- Nav bar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="/static/gengar.png" alt="gengar" width="90">
+
+
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="principal.html" class="navbar-item">
+                    Home
+                </a>
+
+                <a href="sobremim.html" class="navbar-item">
+                    Sobre mim
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-item">
+                        comentarios
+                    </a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-danger">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a href="/login" class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+ <!-- Cartão comentario -->
+ <section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-two-thirds">
+                
+                <article class="message is-info">
+                    <div class="message-header">
+                        <p>Comunidade</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        Bem-vindo ao nosso fórum!
+                    </div>
+                </article>
+
+                <div class="box">
+                    <form action="/adicionarcomentarios" method="POST">
+                        <div class="field">
+                            <label class="label">Novo Comentário</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="O envie seu comentario aqui?" name="cmt" required></textarea>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <button class="button is-success is-fullwidth">Enviar Comentário</button>
+                        </div>
+                    </form>
+                </div>
+
+                <hr>
+
+                <h3 class="title is-4">Comentários Recentes</h3>
+                
+                {% for comentario in lista_de_comentario %}
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="/static/CORINGA[.jpg" class="is-rounded" alt="User image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>@pietrobuxa</strong> <small>agora mesmo</small>
+                                    <br>
+                                    {{ comentario }}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+</html>
