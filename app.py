@@ -25,14 +25,21 @@ def login_post():
     senha = request.form.get("senha")
 
     if usuario == "Carlos" and senha == "123":
-
+        sesssio[usuario] = "Carlos"
         return redirect("/comentarios")
     else:
         return redirect("/login")
+
+
     
 @app.route("/comentarios", methods= ["GET"])
 def pagina_comentarios():
-    return render_template("comentarios.html", lista_de_comentario = lista_de_comentario)
+    if "email" in session:
+
+        return render_template("comentarios.html", lista_de_comentario = lista_de_comentario)
+    else:
+        return redirect("/login.html")
+
 
 @app.route("/adicionarcomentarios", methods= ["POST"])
 def adicionar_comentarios():
