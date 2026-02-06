@@ -3,7 +3,7 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-app.secret_key = "banana"
+app.secret_key = "banana3"
 
 lista_de_comentario = []
 
